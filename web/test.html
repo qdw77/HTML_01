@@ -89,9 +89,39 @@
 /*			a:visited{color: white;}*/
 			#menubar ul li a{text-decoration: none; color: black;}
 			#menubar ul li a:hover{color: blueviolet;}
+
+			@keyframes fadein{
+				0 {opacity:0; color: lightskyblue;} 
+				100% {opacity:1; color: blue;} 
+			}
+
+			.elementA{font-size: 3em; font-weight: bold; animation: fadein 10s ease-in-out}
+			/* animation(단축 프로퍼티) 몇초 어떤 방식으로 */
+			/* opacity < 투명도 */
+			#transitionA{transition: font-size 5s}
+			#transitionA:hover{font-size: 500%;}
+			/* 스타벅스 메뉴바는 높이 값 설정으로 한 듯 */
+
+			#imgdiv{transform: rotate(40deg) scale(3,1); right: 100px;}
+/*		 width: 300px; height: 200px < 사진이 안나오는 게 아니라 작아서 안 보이는 것뿐?	*/
 		</style>
 		<!-- css 3가지 방법> head안에 stylem, 태그안에 인라인 스타일, 외부 스타일 시트(CSS파일 새로 제작 후 link,import) -->
 		<!-- 뷰포트 / 브라우저에 포커스 > 뷰포트 / 공중에 띄운다 / static / floutleft / static은 1층에 다 쌓여있어서 층 값을 못 줌/중첩-->
+
+<!-- 		<script type="text/javascript">
+			// 추천은 안 하지만 간단히 사용 가능
+			function over(obj){
+				// obj<매개변수 src
+				obj.src="샴.jpg"
+			}	
+
+			function out(obj){
+				obj.src="먼치킨.jpg"
+			}
+		</script> -->
+		<!-- <script type="text/javascript" src="javascriptex.js"></script> -->
+
+
 	</head>
 
 	<body id="id1" class="main">
@@ -175,7 +205,7 @@
 
 		<!-- <a href="https://www.naver.com" style="color: white;" target="_blank"><img src="naver.jpg" width="100"></a> -->
 
-		<iframe src="https://jr.naver.com" width="100%" height="300">123123test</iframe>
+		<!-- <iframe src="https://jr.naver.com" width="100%" height="300">123123test</iframe> -->
 		<!-- width > 상대적인 사이즈 % 등 -->
 		<!-- 보통 자신이 만든 페이지들을 불러올 때 iframe을 씀 -->
 		<!-- 네이버나 구글,유튜브 등의 큰 기업을 막아놨으나 주니어 네이버는 뜸 -->
@@ -674,6 +704,103 @@
 			</ul>
 		</nav>
 		<!-- 방문 유무/밑줄 없애기  -->
+
+
+		<h3>CSS를 통한 동적 변화</h3>
+		<!-- Html > 구현/ CSS 꾸미기(간단한 애니메이션/변환/전환 가능) > js/ 동적 효과 -->
+		<p>JS없이 CSS만으로 애니메이션/전환/변환 정도는 가능</p>
+		<p>애니메이션: HTML 태그의 모양 변화를 시간 단위로 설정해서 애니메이션 효과를 만들 수 있음</p>
+
+		<p>1. 시간별 애니메이션 장면 작성</p>
+		<p>@keyframes 키워드를 이용해서 시간 별로 HTML가 변화하는 장면 설정</p>
+		<p>@keyframes name{ 시간비율 {스타일} 시간비율 {스타일} }</p>
+		<p>0~100설정시 from{} to{} 형식으로 작성 가능</p>
+<!-- 		<p>0%(color: red) 50%(color: yellow) 100%(color: blue) (구간 나누는 것 가능)</p>
+		<p>0%(left:0) 50%(left:200) 100%(left:210) (구간 나누는 것 가능)</p> -->
+		<div class="elementA">애니메이션 효과</div>
+
+		<p>animation-name: 애니메이션에 정의된 이름 keyframes</p>
+		<p>animation-duration: 애니메이션의 시간 10s</p>
+		<p>animation-iteration-count: 애니메이션의 반복 횟수 infinite or 숫자</p>
+		<p>animation-timing-function: 애니메이션의 타이밍 함수 설정 linear/ease(디폴트)시작과 끝은 천천히 중앙은 빠르게/ease-in 시작은 천천히 끝은 빠르게 / ease-out 시작은 빠르고 끝은 천천히 / ease-in-out 시작과 끝은 천천히 중간은 빠르게</p> 
+
+
+
+		<p>전환: HTML태그에 적용된 CSS값이 변할 때, 값(높이 값)의 변화를 서서히 진행시켜 애니메이션 효과를 내는 것이며 1회만 이루어짐</p>
+		<p>이 전환을 유발하는 프로퍼티를 전환 프로퍼티라고 함</p>
+
+		<p>transition:전환프로퍼티 전환시간</p>
+		<p>전환 프로퍼티: 해당 프로퍼티의 값이 변경되면 현재 값에서 새 값으로 전환 효과 시작</p>
+		<p>전환시간: 현재 값에서 새값으로 전환되는 데 걸리는 시간</p>
+		
+		<div>transition <span id="transitionA">전환</span> 효과는 프로퍼티 값 변화를 서서히 나타냄</div>
+
+		<p>변환: CSS의 변환 기능을 이용하면 텍스트나 이미지를 회전/확대 등 효과를 주는 것, 변환 효과에서 사용되는 단위 deg 각도에 따라 시계 방향으로 움직인다.</p>
+		<p>변환 효과는 프로퍼티 명을 tranform이고 tranform 프로퍼티 값으로는 여러 함수가 올 수 있다</p>
+		<p>transfrom 프로퍼티의 값으로 올 수 있는 항목 목록</p>
+		<p>translate(x,y): 태그를 x,y만큼 이동</p>
+		<p>translateX(n): x축 방향으로 n만큼 이동</p>
+		<p>translateY(n): Y축 방향으로 n만큼 이동</p>
+		<p>scale(w,h): 높이와 너비를 몇배 비율로 확대</p>
+		<p>scaleX(n): X축 방향 확대 n배 만큼</p>
+		<p>scaleY(n): Y축 방향 확대 n배 만큼</p>
+		<p>rotate(angle<: deg만큼 회전(시계 방향으로)/p>
+		<p>skew(xangle,yangle): x각도 y각도 만큼 기울임</p>
+
+
+		<p>변환 효과는 여러가지를 동시에 나열해서 다중 변환도 가능</p>
+		<div id="imgdiv"><img src="볼프손비스카차.jpg"></div>
+
+		<h1>자바 스크립트</h1>
+		<p>자바스크립트는 모든 브라우저에서 실행되는 웹 범용 언어로 HTML 페이지에 내장된다.</p>
+		<p>자바스크립트 소스 코드는 컴파일 과정 없이 브라우저 내부의 자바스크립트 처리가(인터프리터)에 의해 바로 실행된다</p>
+		<p>자바스크립트는 C언어 구조를 차용하고 단순화 시킨 것</p>
+		<p>동적인 효과를 구현할 때 자바스크립트로 구성</p>
+		<p>사용자의 입력처리 계산</p>
+		<p>웹 페이지의 모양이나 색상을 꾸미는 CSS를 로드 이후에 제어하는 역할</p>
+		<p>브라우저에 대한 제어</p>
+		<p>웹 서버와 통신을 위해 필요</p>
+		<p>웹 애플리케이션 작성</p>
+		
+
+		<!-- css(head 내부 마지막(내부 css)/css파일을 따로 만들어서(외부 css)/<div style="">(인라인 css)) -->
+
+		<p>JS코드의 위치</p>
+		<p>1. HTML 태그의 이벤트 리스너 속성에 값으로서 작성</p>
+		<!-- 이벤트 리스너 중 유명한 것은 onclick='(클릭했을 떄 반응)' /키보드 이벤트 등 I/O 이벤트?  -->
+		<p>2. script태그 내에 작성</p>
+		<p>3. 외부 JS 파일에 작성</p>
+		<p>4. URL 부분에 작성</p>
+
+
+		<img src="먼치킨.jpg" alt="이미지" onclick="this.src='샴.jpg'">
+
+		<!-- 자바스크립트에서 this는 본인(img) / onclick="this.src='샴.jpg'" <프로퍼티 배치 할당(코드) > 여러번 눌러도 샴으로 밖에 안바뀜-->
+		<!-- onclick="JavaScript" -->
+		<p>위 처럼 HTML태그의 이벤트리스너 속성에 JS를 작성하는 방식은 아주 간단한 코드일 때 사용</p>
+
+
+		<p>onmouseover(마우스가 영역에 올라갔을 때) onmouseout(마우스 영역에서 나왔을 때)</p>
+		<!-- 둘을 활용해서 hover 처럼 마우스 올라갈 떄 변형하고 마우스 내려갈 때 원상 복귀 -->
+		<img src="먼치킨.jpg" alt="이미지" onmouseover="over(this)" onmouseout="out(this)">		
+
+		<p>script 태그는 head 안에 넣어도 되고, body에 넣어도 되고, 여러개 만들어도 됨, body의 가장 아래쪽에 만드는 걸 권장</p>
+		<!-- 쭉 훑고 지나가기 떄문이다 -->
+
+
+		<a href="javascript:alert('123')">링크 클릭</a>
+		<!-- <a href="javascript:자바스크립트 원하는 코드 작성">링크 클릭</a> -->
+		
+		<p>JS에서 사용자 입력은 prompt 함수를 사용한다. prompt 함수의 매개변수는 1.메세지, 2. 디폴트 입력값</p>
+
+
+		<p>alert함수는 경고창 출력</p>
+		<!-- 보여주기 용 -->
+		<p>confirm함수는 사용자의 확인 or 취소 리턴 받음</p>
+		<!-- 버튼 있음 -->
+		<p></p>
+		<p></p>
+		<p></p>
 		<p></p>
 
 		
@@ -907,6 +1034,8 @@
 
 
 		</pre>
+
+		<script type="text/javascript" src="javascriptex.js"></script>
 	</body>
 
 </html>
