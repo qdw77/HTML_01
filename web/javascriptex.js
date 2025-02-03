@@ -236,6 +236,348 @@ if(hour/2 == 0){
 // 4. window 객체
 
 
+// 44일차 반응형
+// var btn=document.getElementById('addtodo');
+// var btn=document.getElementById('newtodo');
+// var btn=document.getElementById('');
+
+// todolist.addEventListener('click',(event)=> { //매개변수로 마우스 이벤트(포인터 이벤트 객체 전달 받음)
+// 	console.log(event); //이벤트 객체는 해당 이벤트가 발동된 target과 여러 속성을 가지고 있다.
+// 	if(){
+// 		// 이벤트 
+// 	}
+// })
+
+
+
+// 이벤트와 이벤트 객체
+// 이벤트란 마우스/키보드 입력, 이미지나 문서의 로딩, 타임아웃 등 사용자의 입력 외 문서나 브라우저의 상태 변화를 브라우저가 자바스크립트에게 알리는 notification.
+
+//이벤트 리스너란 
+// 발생한 이벤트에 대한 적정한 대처를 하기 위해 작성된 자바스크립트 코드
+
+//주요 이벤트 리스너 목록
+// onkeydown: 키보드의 아무 키를 누르는 순간
+// onkeypress: 키보드의 알파뉴메릭(알파벳과 숫자만 허용) 키 누르는 순간
+// onkeyup: 키보드 누른 키 놓는 순간
+
+// onclick: 좌클릭
+// oncontextmenu: 우클릭
+// ondbclick: 더블 클릭
+// onmousedown: 마우스의 물리버튼 누르는 경우
+// onmousenter: 마우스 커서가 객체 영역 안으로 들어오는 순간
+// onmouseenter: 마우스 커서가 객체 영역 밖으로 나가는 순간
+// onmouseleaver: 마우스 커서가 객체 영역 안으로 들어오는 순간(자식 객체에게 전파)
+// onmouseout: 마우스 커서가 객체 영역 밖으로 나가는 순간(자식 객체에게 전파)
+// onmouseup: 누른 마우스 버튼 놓는 순간
+// onwheel: 마우스 휠 변화가 생길 떄 
+
+// onabort: 이미지나 문서의 로딩이 중단되는 경우
+// onerror: 문서나 이미지,리소스 등의 로딩에서 오류가 발생할 때
+// onload: 문서나 이미지의 로딩이 완료된 후
+
+// onresize: 윈도우,프레임 혹은 객체 크기가 변경될떄
+
+// onfocus: 객체가 포커스를 가질 떄
+// onchange: 체크박스, input 등의 내용이 변하는 경우
+// onreset: 폼이 reset 되는 경우
+// onsearch: input type search 창에 엔터 입력시
+// onselect: input 영역의 텍스트를 선택할 때
+// onsubmit: 제출버튼 클릭시 발생
+
+
+
+// 이벤트 리스너 만드는 방법
+// 44일차 주사위 제작함
+
+// 1. HTML태그에 직접 작성하는 방법
+// <p onclick="">p태그입니다.</p>
+
+
+// 2. DOM객체의 이벤트리스너 프로퍼티에 작성하는 방법
+// vat pp=document.getElementById('pp'); dom객체화 // pp.a()// pp.a
+// founctionx(){}; // 함수 선언
+// pp.onmouseover=x; //dom객체의 이벤트리스너 프로퍼티에 함수를 등록 //등록하는 경우에는 함수만 / 출력까지면 () 추가 
+
+
+// 3. DOM객체의 addEventListener() 메서드로 등록하는 방법
+// addEventListener(eventName,listener,[,useCapture])함수의 매개변수 [선택적으로 넣을 수 있는 것]
+// eventName:이벤트 타입을 나타내는 문자열 click,load,keydown 등
+// listener: 이벤트 리스너를 등록할 함수 이름
+// useCapture: true로 놓는 경우 이벤트 흐름 중 캡쳐 단계에서 실행될 리스너로 등록하는 것,
+// false로 등록하면 버블 단계에서 실행되는 리스너로 등록함, 기본값은 false
+
+// pp.addEventListener("click,x") // 정의되어 있는 (익명)함수 등록
+// pp.addEventListener('click',fuction(){함수의 실행문}) // 익명함수 사용
+// pp.addEventListener('click',()=>{}) // 44일차엔 이런식으로 적용 (화살표 함수)
+
+
+// 이벤트 객체란
+// 이벤트가 발생하면 브라우저는 발생한 이벤트에 대한 여러 정보를 담은 이벤트 객체를 만들어서 이벤트 리스너에게 전달한다. 
+// onmenusedown 이벤트의 경우 마우스 관련이기 때문에 마우스의 좌표 등 정보를 담은 마우스 이벤트 객체에 전달하고 
+// onkeydown의 경우 키보드 관련으로 키보드의 어떤키가 눌렸는지 keycode등의 정보를 담아 전달한다.
+
+// 이벤트가 처리되고 나면 이벤트 객첸는 소멸한다.
+// 브라우저 한 개의 이벤트를 완전히 처리한 후 다음 이벤트를 처리하므로, 
+// 이벤트 리스너 실행 중에는 오직 한개의 이벤트 객체만 존재한다.
+
+// 마우스 이벤트 객체 and 키보드 이벤트 객체를 각각 console.log
+
+// 이건 내가 한거
+// var dd=document.getElementById('id1');
+
+// dd.addEventListener('click',()=>{
+// 	console.log(dd);
+// });
+
+// 이건 예시
+// document.body.addEventListener('keypress',(event)=>{console.log(event)})
+// // 키보드 입력 시 로그
+// document.body.addEventListener('wheel',(event)=>{console.log(event)})
+// 마우스 휠 이동 시 로그
+
+
+// 이벤트 객체의 target프로퍼티
+// 타겟 프로퍼티는 이벤트의 대상을 가르킴
+// 이벤트 타겟이란 이벤트를 유발시킨 객체를 의미함
+// target과 유사함 프로퍼티로 currentTarget프로퍼티가 있다.
+// currentTarget은 이벤트가 흘러가는 경로 상에 있는 DOM 객체 중 현재 이벤트 리스너를 실행하고 있는 DOM객체를 가르킨다.
+
+// var ppp=document.getElementById('d11');
+// ppp.addEventListener('click',ff);
+// function ff(e){
+// 	let text="type"+e.type+"<br>"+"target"+e.target+"<br>"+"currentTarget"+e.currentTarget+"<br>";
+// 	// 하나의 문자열 이지만 target / currentTarget 차이 확인
+// 	ppp.innerHTML=text;
+// }
+
+// type 프로퍼티는 현재 발생한 이벤트의 종류
+// target 프로퍼티는 이벤트가 실제로 발생한 요소(직접 누른 곳)
+// currentTarget 프로퍼티는 이벤트가 바인딩 된 요소(선언)
+// defaultPrevented프로퍼티는 이벤트의 디폴트 행동이 취소되었는지 여부 t/f로 나타남
+// preventDefault() 메서드는 이벤트의 디폴트 행동을 취소시키는 메서드
+
+
+// HTML캐그 중 몇몇은 특정 이벤트에 대해 디폴트 행동을 한다.
+
+// 디폴트 행동의 예시
+// a링크를 클릭하면 이동하는 것
+// submit 버튼을 클릭하면 폼 데이터를 전송하는 것
+// reset을 입력하면 폼이 초기화 되는 것
+// wheel을 굴리면 브라우저 스크롤이 움직이는 것
+
+// 이벤트 객체의 cancelable 프로퍼티가 true인 경우만 preventDefault가 가능하다
+
+
+// 이벤트의 흐름
+// 이벤트가 발생하면 이벤트는 타겟 객체에 전달한다
+
+// 이벤트가 단번에 타겟 객체로 직접 전달되는 것이 아니라 
+// windowo객체로부터 DOM트리를 타고 중간 DOM객체들을 거쳐 타겟 객체로 이벤트가 흘러들어가고, 
+// 다시 반대 방형으로 이동하여 window 객체에 도달한 후 이벤트는 소멸한다. 
+// 위 과정을 이벤트의 흐름이라고 한다.
+
+// 이벤트의 흐름은 2가지 단계로 나누어 볼 수 있다. 1. 캡쳐단계, 2.버블 단계
+
+// 캡쳐 단계는 window 객체에서 타겟 객체까지 전파되는 과정
+// 버블 단계는 타겟 객체에서 거꾸로 window까지 이벤트 객체가 전파되는 과정
+// DOM객체들은 동일한 이벤트에 대해 캡쳐 리스너와 버블 리스너를 모두 가질 수 있음
+
+// function cap(){
+// 	console.log(1);
+// }
+
+// function bub(){
+// 	console.log(2);
+// }
+
+// var bt1=document.getElementById('bt1');
+
+// bt1.addEventListener('click',cap,true);
+// bt1.addEventListener('click',bub,false);
+
+// 캡처와 버블 단계 구분 : 이벤트 발동 순서에 대한 관리 / 이벤트 우선 순위 관리 필요할 때
+
+// 이벤트 객체의 멤버 중 이벤트 흐름과 관계된 멤버
+// cancelable : 디폴트 취소 여부
+// stopPropagation() : 객체에 등록된 리스너를 모두 실행 후 이벤트 흐름 중단
+// stopImmediatePropagation() : 현재 리스너만 실행하고 이벤트 흐름 즉각 중단
+
+
+// 마우스 핸들링
+// 마우스 객체 관련 프로퍼티
+// x,y : x,y는 타겟 객체의 부모 객체 내애서 마우스 좌표
+// clientX,clientY : 브라우저 윈도우의 문서 출력 영역 내에서 마우스 좌표
+// screenX,screenY : 스크린을 기준으로 한 마우스 좌표
+// offsetX,offsetY : 타겟 객체 내애서의 마우스 좌표
+// button : 눌러진 마우스 버튼 종류 > 0: 아무것도 안눌린 상태, 1: 왼쪽 버튼, 2: 오른쪽 버튼, 3: 왼쪽,오른쪽 모두, 4: 중간버튼
+// wheelDelte : 휠이 구른 방향, 양수:위쪽으로 굴림 / 음수: 아래쪽으로 굴림
+
+// document.body.addEventListener('wheel',(event)=>{console.log(event)})
+
+
+// 키보드 이벤트 객체 프로퍼티
+// code : 눌려진 키의 이름
+// key : 눌려진 키의 문자열
+// altkey : 알트키 눌린 상태 여부
+// ctrlkey : 컨트롤키 눌린 상태 여부
+// shiftkey : 쉬프트키 눌린 상태 여부
+// keycode : 키코드 값 숫자
+
+
+// 3*3
+// let tds;
+// let prevIndex=0;
+// let index=0;
+// window.onload=function(){
+// 	tds=document.getElementsByTagName("td");
+// 	tds[index].style.backgroundColor="orchid";
+// }
+
+// window.onkeydown = function(e) {
+// 	switch(e.key){
+// 	case "ArrowDown":
+// 		if(index/3>=2) return;
+// 		index+=3;
+// 		console.log(index);
+// 		break;	
+// 	case "ArrowUp":
+// 		if(index/3<1) return;
+// 		index-=3;
+// 		console.log(index);
+// 		break;	
+// 	case "ArrowLeft":
+// 		if(index%3==0) return;
+// 		index--;
+// 		console.log(index);
+// 		break;	
+// 	case "ArrowRight":
+// 		if(index%3==2) return;
+// 		index++;
+// 		console.log(index);
+// 		break;
+
+// 	}
+
+// 	tds[index].style.backgroundColor="orchid";
+// 	tds[prevIndex].style.backgroundColor="white";
+// 	prevIndex=index;
+
+// }
+
+// 테이블 누르면 카드 뒤집히는 거
+// 4*4 테이블로 만들 td칸 각 칸은 누르면 뒤집힌다. 뒤집힌 칸에는 이미지가 뜬다. 이미지 종류는 8개
+
+let tds;
+let prevIndex=0;
+let index=0;
+window.onload=function(){
+	tds=document.getElementsByTagName("td");
+	// tds[index].style.background="url(https://cdn.metavv.com/prod/uploads/thumbnail/images/10043263/167100535142741_md.png) no-repeat";
+	tds[index].style.borderColor='plum';
+}
+
+window.onkeydown = function(e) {
+
+	// console.log(key);
+	switch(e.key){
+	case "ArrowDown":
+		if(index/4>=3) return;
+		index+=4;
+		console.log(index);
+		break;	
+	
+	case "ArrowUp":
+		if(index/4<1) return;
+		index-=4;
+		console.log(index);
+		break;	
+	
+	case "ArrowLeft":
+		if(index%4==0) return;
+		index--;
+		console.log(index);
+		break;	
+	
+	case "ArrowRight":
+		if(index%4==3) return;
+		index++;
+		console.log(index);
+		break;
+	case "Enter":
+		tds[index].classList.toggle("effectCSS");
+		// tds[index].classList.add('effectCSS'); //수동
+		// tds[index].classList.remove('effectCSS'); //위에랑 세트
+		if((index == 8)||(index == 13)){
+			tds[index].style.background='plum';
+		}else if((index == 5)||(index == 6)){
+			tds[index].style.background='skyblue';
+		}else if((index == 0)||(index == 4)){
+			tds[index].style.background='lightgreen';
+		}else if((index == 1)||(index == 10)){
+			tds[index].style.background='lightcoral';
+		}else if((index == 3)||(index == 15)){
+			tds[index].style.background='lightpink';
+		}else if((index == 2)||(index == 9)){
+			tds[index].style.background='lightyellow';
+		}else if((index == 11)||(index == 7)){
+			tds[index].style.background='midnightblue';
+		}else if((index == 14)||(index == 12)){
+			tds[index].style.background='lightsteelblue';
+		}
+		// if (index > 0){
+		// 	if (index == 8){
+		// 		tds[index].style.background='plum';
+		// 	} else if (index ==13) {
+		// 		tds[index].style.background='plum';
+		// 	}
+		// }
+		
+		// if ((index == 8)&&(index == 13)){
+		// 	tds[index].style.background='plum';
+		// } 이중 if
+		// 만약 둘다 참일 때는 유지 그렇지 않을 경우는 해체
+		break
+
+	// case "Enter":
+	// 	if(index == 1) {
+	// 		tds[index].style.effectCSS;
+	// 		break;
+	// 	}
+
+
+	}
+
+	// tds[index].style.background="blue";
+	// tds[prevIndex].style.background="white";
+	tds[index].style.borderColor='plum';
+	tds[prevIndex].style.borderColor='blue';
+	prevIndex=index;
+		// event.preventDefault();
+}
+
+// tds[0].addEventListener();
+// tds[index].addEventListener('click',function(){
+
+// })
+
+
+
+	// case "Enter":
+	// 	if (index == 0) {
+	// 		tds[prevIndex].style.background="red";
+	// 		tds[index].style.background="red";
+	// 		console.log(index);
+	// 	}if (index == 15) {
+	// 		tds[prevIndex].style.background="red";
+	// 		tds[index].style.background="red";
+	// 		console.log(index);
+	// 	} else {
+	// 		console.log(index);
+	// 	}
+
+
+
 
 
 
