@@ -108,6 +108,11 @@
 			td{width: 300px; height: 300px; border: 1px solid blue; background-color: white;}
 /*		Enter	*/
 			.effectCSS{background-color: blue;}
+			.setBox{background-color: white; width: 200px; height: 200px}
+			.btnC button{background-color: red; }
+			#aa{width: 300px; height: 300px}
+			#onA{float: left;}
+			#offA{float: right;}
 		</style>
 		<!-- css 3가지 방법> head안에 stylem, 태그안에 인라인 스타일, 외부 스타일 시트(CSS파일 새로 제작 후 link,import) -->
 		<!-- 뷰포트 / 브라우저에 포커스 > 뷰포트 / 공중에 띄운다 / static / floutleft / static은 1층에 다 쌓여있어서 층 값을 못 줌/중첩-->
@@ -128,13 +133,51 @@
 
 	</head>
 
-	<body onload='alert("문서 로딩 완료시 호출")' id="id1" class="main">
+	<!-- <body onload='alert("문서 로딩 완료시 호출")' id="id1" class="main"> -->
+	<body id="id1" class="main">
 
-		<header>header</header>
+<!-- 		<header>header</header>
 		<nav>nav</nav>
 		<section>section</section>
 		<aside>aside</aside>
-		<footer>footer</footer>
+		<footer>footer</footer> -->
+
+
+		<p>canvas 는 웹페이지 그래픽 표현 방법</p>
+		<p>이미지 태그르르 출력할 때는 img태그를 이용하고 그래픽 에니메이션이나 사용자 그래픽이 필요한 경우 canvas활용</p>
+		<p>캔버스 그래픽 기능을 이용하여 선,원,곡선,삭가형 이미지 2차원 문자 등 자유롭게 그려낼 수 있음</p>
+		<p>실시간 그래프,애니메이션,지도,게임 등을 간단하게 플러그인 없이 구현 가능하다</p>
+		<p>캔버스에 그래픽 그리기는 js코드만 가능하다</p> 
+		<!-- 3d도 있으나 2d만 제작 예정 -->
+
+		<canvas id="cv1" width="500" height="500" style="background-color: lightblue;"></canvas>
+		<canvas id="cv2" width="300" height="300" style="background-color: lightyellow;"></canvas>
+		<canvas id="cv3" width="200" height="200" style="background-color: blue;"></canvas>
+
+
+
+
+
+		<button onclick="history.back()">back</button>
+		<button onclick="history.forward()">forw</button>
+		<button onclick="history.go(-1)">goto</button>
+
+		<div><span id="sp1" style="background-color: lightseagreen;">123456텍스트</div>
+
+		<a href="javascript:load('https://www.naver.com/')">새 윈도우 열기</a>
+		<a href="javascript:window.close()">윈도우 닫기</a>
+		<a href="javascript:closeNewWindow()">새 윈도우 닫기</a> 
+		<!-- 제일 마지막에 열린 것만 닫음 -->
+		<br>
+		<br>
+
+		<!-- <div class="setBox" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">div박스</div> -->
+		<br>
+		<br>
+
+		<p id="aa">p태그 문장</p>
+		<div class="btnC" ><button type="button" id="onA">ON</button></div>
+		<div class="btnC" ><button type="button" id="offA">OFF</button></div>
 
 		<br>
 		<br>
