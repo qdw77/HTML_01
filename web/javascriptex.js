@@ -369,6 +369,7 @@ function myAlert(t){
 // OFF버튼을 누르면 자동이 꺼진다.
 
 // let TimeId = null;
+//////////예시
 backcolor=[
 	"blue","skyblue","lightpink"
 ]
@@ -967,8 +968,11 @@ btnB.onclick=()=>{
 // width: 이미지 폭
 // height: 이미지 높이
 
-let canvas=document.getElementById('cv1');
-let context=canvas.getContext("2d");
+// let canvas=document.getElementById('cv1');
+// let context=canvas.getContext("2d");
+// let canvasTF=false;
+// let startX;
+// let startY;
 
 // let img=new Image();
 // img.onload=function(){
@@ -978,21 +982,84 @@ let context=canvas.getContext("2d");
 // img.src="https://upload3.inven.co.kr/upload/2020/04/24/bbs/i14579851604.jpg";
 
 // 클릭을 하며 그릴 수 있도록 마치 그림판처럼
-canvas.addEventListener('mousemove',function(e){down(e)},false);
-function down(e){ //누르는 것(시작 위치)/ 마우스 좌표 설정
-	startX=e.offsetX;
-	startY=e.offsetY;
-	console.log(startX); //그림 그리기가 가능한 상태 
-}
+// canvas.addEventListener('mousemove',function(e){down(e)},false); 
+// canvas.addEventListener('mousedown',function(e){down(e)},false); 
+// // canvas.addEventListener('mousedown',function(e){draw(e)},false);
+// function down(e){ //누르는 것(시작 위치)/ 마우스 좌표 설정
+// 	startX=e.offsetX;
+// 	startY=e.offsetY;
+// 	// console.log(startX); //그림 그리기가 가능한 상태 마우스 위치
+// }
 
-function up(){ // 마우스가 움직여도 그림 안그려지게
+// function up(){ // 마우스가 움직여도 그림 안그려지게
 
-}
-function out(){ //캔버스 영역 밖으로 나간 상태
+// 	// 만약 마우스 클릭했다면 true / draw 호출
+// 	// if (canvasTF==false) {
+// 	// 	return;
+// 	// }
+	
+// }
+// function out(){ //캔버스 영역 밖으로 나간 상태
+// 	canvasTF=false;
+// }
 
-}
+// function draw(){ //마우스 좌표 움직임에 따라 캔버스에 그림 그리는 함수
+// 	// canvas.addEventListener('mousemove',function(e){down(e)},true); // 마우스 움직임대로
+// 	context.lineTo(down(startX,startY)); // 마우스 위치대로 그림 , 
+// 	console.log(startX); //그림 그리기가 가능한 상태 마우스 위치
+// 	contex.stroke(); // 
+// 	canvasTF=true; //그려지게
+// }
 
-function draw(){ //마우스 좌표 움직임에 따라 캔버스에 그림 그리는 함수
+// // // 예시 ()
+let canvas=document.getElementById('cv1');
+let context=canvas.getContext("2d");
 
-}
+let btn=document.getElementById('btnCan');
+
+let canvasTF=false;
+let x;
+let y;
+
+
+canvas.addEventListener('mousemove',(e)=>{
+	x=e.offsetX;
+	y=e.offsetY;
+
+	if(canvasTF){
+		context.lineTo(x,y);
+		context.stroke();
+	}else{
+		console.log('클릭');
+	}
+})
+
+canvas.addEventListener('mousedown',(e)=>{
+	canvasTF=true;
+	context.beginPath();
+	context.moveTo(x,y);
+})
+
+canvas.addEventListener('mouseup',(e)=>{
+	canvasTF=false;
+	context.closePath();
+})
+canvas.addEventListener('mouseout',(e)=>{
+	canvasTF=false;
+	context.closePath();
+	context.clearRect(0,0,canvas.width,canvas.height); //캔버스를 벗어나면 자동으로 지워짐(좌표값 초기화)
+})
+// 지우개 > 색 배경색으로 변경 
+
+// btn.addEventListener('click',()=>{
+// 	context.strokeStyle='lightblue';
+// })
+
+// :after는 가상셀렉터로 x:after는 x요소 뒷부분 의미
+// x:after CSS셀렉터 내용에 content를 통해 x요소에 붙일 컨텐츠 작성
+// display:table은 테이블처럼 보여지는 디스플레이
+// clear:both는 float속성에 left/right로 배치한 요소와 다음 요소가 겹치지 않게 
+// opactity는 투명도 속성 0~1
+// user-select:none은 해당 요소의 텍스트를 드레그해서 선택 못하도록 설정하는 것
+
 
