@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill_Thanos</title>
+    <style>
+        body { text-align: center; }
+/*        .game_canvas{position: relative; z-index: 1;}*/
+        #gameCanvas{ 
+/*            background: black;*/
+/*            background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
+            background-size: cover;
+            opacity: 0.85;
+            display: block;
+            border: 2px solid black;
+            margin: auto; */
+            display: inline-block;
+            position: relative;
+        }
+
+        #gameCanvas {
+        	background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
+        	background-size: cover;
+            opacity: 0.85;
+            border: 2px solid black;}
+
+       #Start_TK{
+			position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg");
+            background-size: cover;
+            width: 605px;
+            height: 805px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+       }
+
+       #btn{
+/*           	버튼 위치 밑으로 	*/
+       	    padding: 25px;
+       	}
+       	#btn:hover{
+       		text-decoration: underline;
+       		text-decoration-thickness: 2px;
+       	}
+
+		#intro_TK{
+			position: absolute;
+			top: 75%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 605px;
+			height: 810px;
+			display: flex;
+			justify-content: center;
+			align-items: center;	
+		}
+
+		#intro_mp1_TK{
+			width: 605px;
+			height: 810px;
+		}
+
+		#Video_img{
+			object-fit: cover;
+		}
+
+		#game_Item{
+			height: 200px;
+			width: 30px;
+			border: 2px solid black;
+			position: absolute;
+			background-color: rebeccapurple;
+		}
+		#item_time{
+			height: 100px;
+			width: 20px;
+/*		투명일 땐 아이템 바가 밑 아이템을 먹으면 색상 변화 동시에 아이템 바가 위로	긴 원통형*/
+			border: 2px solid black;
+			border-radius: 30px;
+			position: absolute;
+			background-color: white; 
+			opacity: 0.3;
+		}
+		#time_limit{
+			height: 300px;
+			width: 20px;
+			border: 2px solid black;
+			position: absolute;
+			border-radius: 30px;
+			background-color: white; 
+			opacity: 0.3;
+		}
+		#item_icon{
+			background-color: white;
+			width: 10px;
+			height: 10px;
+			text-align: center;
+		}
+    </style>
+</head>
+<body>
+    <div class="main_wrab">
+        <div class="title"><h1>Kill_Thanos</h1></div>
+        <div class="game_canvas">
+        	<!-- 게임 스타트 -->
+        	<canvas id="gameCanvas" width="600" height="800"></canvas>
+        	<!-- ui -->
+        	<div id="HP">
+        		<!-- 체력 -->
+        	</div>
+        	<div id="game_Item">
+        		<div id="item_icon">
+        			&#128503;
+        			<!-- 아이템 없음 -->
+        		</div>
+        		<div id="item_iconA">
+					⚡
+        			<!-- 총알 강화(파란색)아이템 💙 🔧 ➕ ❎-->
+        		</div>
+        		<div id="item_iconB">
+        			🔼
+        			<!-- 데미지 증가(주황색)아이템 💚 💛 🔶 -->
+        		</div>
+        		<div id="item_iconC">
+        			⏫
+        			<!-- 데미지 대폭 증가(빨간색)아이템 💜 🔷-->
+        		</div>
+
+<!--         	아우라로 설정	
+				<div id="item_iconD">
+
+        			 총알 개수 증가 아이템
+        		</div>
+        		<div id="item_icon">
+        			❤
+        			하트(체력 회복)아이템
+        		</div> -->
+        		<div id="item_time">
+        			<!-- 아이템 지속 시간 -->
+        		</div>
+        	</div>
+        	<div id="time_limit">
+        		<!-- ⏱ 🕗 -->
+        		<!-- 시간바는 위 아이콘은 시계로 하고 보스 나오는 시간 표시? -->
+        	</div>
+
+        	<div id="score">
+        		<!-- 기본 스코어는 1 -->
+        	</div>
+        	<!-- 인트로 클릭시 시작되어야 -->
+        	<div id="intro_TK">
+        		<video playsinline id="intro_mp4_TK" width="600px" height="800px">
+        			<source id="Video_img" src="file:///C:/Users/301-16/Desktop/kill_Thanos/intro_Start.mp4">
+        		</video>
+        	</div>
+        	<!-- start 화면 -->
+        	<div id="Start_TK">
+        		<button id="btn" onclick="StartMap()">START</button>	
+        	</div>
+
+        	<!-- 보스 패턴 180도 회전 -->
+
+        </div>
+    </div>
+    <script src="kt_sc.js"></script>
+</body>
+</html>

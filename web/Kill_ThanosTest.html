@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill Thanos</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .game_canvas {
+            position: relative;
+            display: inline-block;
+        }
+
+        #gameCanvas {
+            background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
+            background-size: cover;
+            opacity: 0.85;
+            border: 2px solid black;
+        }
+
+        /* START 버튼 스타일 */
+        #startContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg");
+            background-size: cover;
+            width: 600px;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_wrab">
+        <h1>Kill Thanos</h1>
+        <div class="game_canvas">
+            <canvas id="gameCanvas" width="600" height="800"></canvas>
+            <div id="startContainer">
+                <button id="btn">START</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function() {
+            document.getElementById("startContainer").style.display = "none";
+        });
+    </script>
+    <script src="kt_sc.js"></script>
+</body>
+</html>
