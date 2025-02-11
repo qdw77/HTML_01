@@ -5,102 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kill_Thanos</title>
     <style>
-        body { text-align: center; }
-/*        .game_canvas{position: relative; z-index: 1;}*/
-        #gameCanvas{ 
-/*            background: black;*/
-/*            background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
-            background-size: cover;
-            opacity: 0.85;
-            display: block;
-            border: 2px solid black;
-            margin: auto; */
-            display: inline-block;
-            position: relative;
-        }
+        body { text-align: center;}
 
-        #gameCanvas {
-        	background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
-        	background-size: cover;
-            opacity: 0.85;
-            border: 2px solid black;}
+		.game_canvas{
+			position: relative;  /* 기준이 되는 부모 요소 */
+		    width: 1500px; /* 캔버스 크기와 동일하게 설정 */
+		    height: 800px;
+		    margin: auto;  /* 가운데 정렬 */
+		    border: 2px solid black;
+		}
 
-       #Start_TK{
-			position: absolute;
-            top: 75%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-image: url("https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg");
-            background-size: cover;
-            width: 605px;
-            height: 805px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-       }
 
-       #btn{
-/*           	버튼 위치 밑으로 	*/
-       	    padding: 25px;
-       	}
-       	#btn:hover{
-       		text-decoration: underline;
-       		text-decoration-thickness: 2px;
-       	}
+		#gameCanvas {
+		    width: 100%;  /* 부모 요소(.game_wrapper) 크기에 맞춤 */
+		    height: 100%;
+		    background-image: url("https://img1.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202105/24/hero_nitko/20210524035650013qkvi.jpg");
+		    background-size: cover;
+		    opacity: 0.85;
+		    display: block;
+
+		    z-index: 1;
+		}
+
+		#Start_TK {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;  
+		    height: 100%; 
+		    background-image: url("https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg");
+		    background-size: cover;
+		    background-repeat: no-repeat;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    z-index: 3;
+		}
+
+
+		#btn {
+		    padding: 25px;
+		    position: relative;
+		    top: 40%;
+		    border: none;
+		    background-color: transparent;
+		    font-size: 50px;
+		}
+
+		#btn:hover {
+			color: red;
+		    text-decoration: underline;
+		    text-decoration-thickness: 2px;
+		}
 
 		#intro_TK{
 			position: absolute;
-			top: 75%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 605px;
-			height: 810px;
+           	top: 0;
+		    left: 0;
+		    width: 100%;  
+		    height: 100%; 
 			display: flex;
 			justify-content: center;
 			align-items: center;	
+			z-index: 2;
 		}
 
 		#intro_mp1_TK{
-			width: 605px;
-			height: 810px;
+			width: 100%;
+			height: 100%;
 		}
 
-		#Video_img{
-			object-fit: cover;
-		}
-
-		#game_Item{
+		#Game_Skill{
 			height: 200px;
 			width: 30px;
-			border: 2px solid black;
+/*			border: 2px solid black;*/
 			position: absolute;
-			background-color: rebeccapurple;
+/*			background-color: rebeccapurple;*/
+			display: inline-block;
+			top: 90%;
+			right: 3%;
 		}
-		#item_time{
+/*		#item_time{
 			height: 100px;
 			width: 20px;
-/*		투명일 땐 아이템 바가 밑 아이템을 먹으면 색상 변화 동시에 아이템 바가 위로	긴 원통형*/
+			display: flex;
 			border: 2px solid black;
 			border-radius: 30px;
 			position: absolute;
 			background-color: white; 
 			opacity: 0.3;
-		}
+			top: 20px;
+			left: 0px;
+			text-align: center;
+			border: 5;
+		}*/
 		#time_limit{
-			height: 300px;
+			height: 600px;
 			width: 20px;
 			border: 2px solid black;
 			position: absolute;
+			display: inline-block;
 			border-radius: 30px;
 			background-color: white; 
 			opacity: 0.3;
+			top: 20%;
+			left: 3%;
 		}
-		#item_icon{
-			background-color: white;
+		#HP{
+			position: absolute;
+			display: inline-block;
+			top: 2%;
+			left: 1%;
+		}
+		#Skill_icon{
+/*			background-color: white;*/
+			background-image: url("https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png");
+/*		https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png	*/
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			background-size: cover;
+			position: absolute;
+			display: flex;
+			border: 0;
+			top: 5px;
+			left: 7px;
+		}
+
+		#Skill_A{ 
+/*			display: none;*/
+			background-image: url("");
+		}
+		#Skill_B{
+/*			display: none;*/
+			background-image: url("");
+		}
+/*		.item_icon{
+			visibility: hidden;
+			display: inline-block;
+			position: absolute;
 			width: 10px;
 			height: 10px;
 			text-align: center;
+			background-size: cover;
+			position: absolute;
+			display: flex;
+			border: 0;
+			top: 5px;
+			left: 7px;
+		}*/
+/*		#item_iconA{
+			background-image: url("https://cdn.pixabay.com/photo/2012/04/02/16/07/plus-24844_1280.png");
+
 		}
+		#item_iconB{
+			background-image: url("https://cdn.pixabay.com/photo/2012/04/13/00/18/arrow-31197_1280.png");
+		}
+		#item_iconC{
+			background-image: url("https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_1280.png");
+		}*/
+
+
+
     </style>
 </head>
 <body>
@@ -108,62 +174,62 @@
         <div class="title"><h1>Kill_Thanos</h1></div>
         <div class="game_canvas">
         	<!-- 게임 스타트 -->
-        	<canvas id="gameCanvas" width="600" height="800"></canvas>
+        	<canvas id="gameCanvas" width="1500" height="800"></canvas>
         	<!-- ui -->
         	<div id="HP">
-        		<!-- 체력 -->
+        		<!-- HP도 이미지로 변경 -->
+        		<span class="rife" id="HP_1">❤️</span>
+        		<span class="rife" id="HP_2">❤️</span>
+        		<span class="rife" id="HP_3">❤️</span>
+        		<span class="rife" id="HP_4">❤️</span>
+        		<span class="rife" id="HP_5">❤️</span>
         	</div>
-        	<div id="game_Item">
-        		<div id="item_icon">
-        			&#128503;
-        			<!-- 아이템 없음 -->
-        		</div>
-        		<div id="item_iconA">
-					⚡
-        			<!-- 총알 강화(파란색)아이템 💙 🔧 ➕ ❎-->
-        		</div>
-        		<div id="item_iconB">
-        			🔼
-        			<!-- 데미지 증가(주황색)아이템 💚 💛 🔶 -->
-        		</div>
-        		<div id="item_iconC">
-        			⏫
-        			<!-- 데미지 대폭 증가(빨간색)아이템 💜 🔷-->
-        		</div>
+            <div id="Game_Skill">
+                <!-- 아이템 아이콘들 -->
+                <div id="Skill_icon"></div> <!-- 기본 없음 -->
+<!--                 <div class="item_icon" id="item_iconA"></div>
+                <div class="item_icon" id="item_iconB"></div>
+                <div class="item_icon" id="item_iconC"></div>  -->
+                <!-- 레이저 1단계 -->
+                <div id="Skill_A"></div>
+                <!-- 레이저 2단계 -->
+                <div id="Skill_B"></div>
 
-<!--         	아우라로 설정	
-				<div id="item_iconD">
+                <!-- <div id="item_time"></div> -->
+                <div id="skill_time"></div> <!-- 숫자로 표기 -->
+            </div>
 
-        			 총알 개수 증가 아이템
-        		</div>
-        		<div id="item_icon">
-        			❤
-        			하트(체력 회복)아이템
-        		</div> -->
-        		<div id="item_time">
-        			<!-- 아이템 지속 시간 -->
-        		</div>
-        	</div>
         	<div id="time_limit">
         		<!-- ⏱ 🕗 -->
-        		<!-- 시간바는 위 아이콘은 시계로 하고 보스 나오는 시간 표시? -->
+        		<!-- 시간바는 보스 나오는 데 남은 시간 -->
+        		
         	</div>
+        	<!-- <div id="time_boss"></div> -->
 
         	<div id="score">
         		<!-- 기본 스코어는 1 -->
         	</div>
         	<!-- 인트로 클릭시 시작되어야 -->
-        	<div id="intro_TK">
-        		<video playsinline id="intro_mp4_TK" width="600px" height="800px">
-        			<source id="Video_img" src="file:///C:/Users/301-16/Desktop/kill_Thanos/intro_Start.mp4">
+        	<div id="intro_TK" width="600" height="800">
+        		<!-- 게임 화면 조정 후 주석 해제 -->
+        		<video playsinline id="intro_mp4_TK" width="100%" height="100%">
+        			<source id="Video_img" src="C:\Users\301-16\Desktop\kill_Thanos\kill_Thanos\intro_Start.mp4">
         		</video>
         	</div>
+
         	<!-- start 화면 -->
-        	<div id="Start_TK">
+        	<div id="Start_TK" width="600" height="800">
         		<button id="btn" onclick="StartMap()">START</button>	
         	</div>
 
         	<!-- 보스 패턴 180도 회전 -->
+        	<div id="Boss_Reality"></div>
+
+        	<div id="soldier">
+        		<div id="soldierA"></div>
+        		<div id="soldierB"></div>
+        		<div id="soldierC"></div>
+        	</div>
 
         </div>
     </div>
