@@ -1,0 +1,221 @@
+https://velog.io/@dalgit/Mini-project-enemyRain-%EA%B2%8C%EC%9E%84-%EA%B5%AC%ED%98%84 < hp
+
+//유령 충돌감지 함수
+function crash(ene) {
+    if(hero.offsetTop<=ene.offsetTop+15 && 
+        ene.offsetLeft-22<=hero.offsetLeft &&
+        hero.offsetLeft<=ene.offsetLeft+22){
+        ene.classList.remove('enemy')
+        deleteHeart()
+        return clearInterval(moveInterval)
+    }
+}
+//충돌시 하트감소, 하트0은 게임오버
+function deleteHeart() {
+    heart[0].parentNode.removeChild(heart[0]);
+    if(heart.length===0) {
+        timeDiv.innerHTML='';
+        lastMsg.innerHTML=`${second}초 생존했습니다!`;
+        gameOver.style.visibility = '';
+        clearInterval(time);
+        clearInterval(copyInterval);
+    }
+
+
+      Game_canvas.style.transition="transform 1s ease-out, opacity 0.5s ease-out";
+      // Game_canvas.style.transform="translateY(-100%);"
+
+리얼리티 스톤 좌표 값 바꾸기 (
+hp 위치나 게이지 등의 위치도 변경? 좌표 값 변경
+
+// function timerplay(){
+// 	setTimeout(function(){
+// 		if (boss_timerStart==true) {
+//       		timerBoss();
+// 		}
+// 	},4000)
+// }
+
+
+
+// function UIManager() {
+//    // UI 설정
+//    // 아이템 지정 만약 먹었다면 안 먹었다면 
+// 	if () {
+// 		SkillC.style.display="block";
+// 	} if else{
+// 		// 
+// 		SkillB.style.display="block";
+// 	}else{
+// 		SkillA.style.display="";
+// 	}
+//    // item_time.style.backgroundColor="..."
+//    // visibility: visible;
+// }
+
+// 나중 아이템 값 ex) 아이템이 데미지 증가면 1...
+let item=0;
+
+
+/*		.item_icon{
+			visibility: hidden;
+			display: inline-block;
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			text-align: center;
+			background-size: cover;
+			position: absolute;
+			display: flex;
+			border: 0;
+			top: 5px;
+			left: 7px;
+		}*/
+/*		#item_iconA{
+			background-image: url("https://cdn.pixabay.com/photo/2012/04/02/16/07/plus-24844_1280.png");
+
+		}
+		#item_iconB{
+			background-image: url("https://cdn.pixabay.com/photo/2012/04/13/00/18/arrow-31197_1280.png");
+		}
+		#item_iconC{
+			background-image: url("https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_1280.png");
+		}*/
+
+// 리얼리티 스톤 t/f
+let Reality_stone=false;
+// 리얼리티 스톤 180도 회전
+function start_Boss_PhaseA() {
+   if (!Reality_stone){
+      Reality_stone=true;
+
+      // 캔버스 gameCanvas
+      let Game_canvas=document.getElementById("gameCanvas");
+
+      // 이거는 깜빡이는 애니메이션 / opacity 투명도 ease-out 속도? 그런거
+      Game_canvas.style.transition="opacity 0.5s ease-out";
+      Game_canvas.style.opacity=0;
+
+      setTimeout(function() {
+
+      	// 원래대로 돌아오는 것
+      	Game_canvas.style.opacity=1;
+      	// 이게 회전
+      	Game_canvas.style.transform = "rotate(180deg)";
+      },500);
+
+   }
+}
+
+
+	// Game_canvas.style.opacity=1;
+	// console.log("출력");
+	// Game_canvas.style.transform = "rotate(360deg)";
+
+
+
+// function up_life() {
+//    let lifeHtml="";
+//    for(let i =0; i<5; i++){
+//       if(i<life){
+//          lifeHtml+="❤️";
+//       }else{
+//          lifeHtml+="";
+//       }
+//    }
+// }
+
+
+/*        #score_filled {
+            height: 100%;
+            background-color: blue; 
+            width: 0%; 
+            border-radius: 15px;
+            transition: width 0.5s ease-out; 
+        }*/
+
+
+/*        #score {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: white;
+        }
+*/
+
+// HP / skill 정렬 및 값 입력 받아서 출력하는 함수 
+// 밑 경험치바 경험치 올라가는 함수/변수
+// boss HP 함수/변수
+
+전체적인 css 및 위치
+
+쫄 
+ex)
+https://velog.io/@dalgit/Mini-project-enemyRain-%EA%B2%8C%EC%9E%84-%EA%B5%AC%ED%98%84 < 사이트
+
+https://velog.io/@jeein/%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%9B%B9%EA%B2%8C%EC%9E%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-javascript%EC%9C%A0%EB%A0%B9 < 유령 부분 더 자세히
+
+//600밀리초마다 유령 생성후 interval에 넘겨줌
+let copyInterval = setInterval(()=>{
+    // createEnemy 생성하는 진짜 함수 호출
+    let copyEnermy = createEnemy();
+    // 무브로 함수를 옮겨줌
+    moveInterval(copyEnermy) 
+},600)
+
+//유령 생성
+let createEnemy = ()=>{
+    // 랜덤 값을 받아와서 bg(전체 맵)
+    let random = Math.floor(Math.random()*(bg.offsetWidth-66)+22);
+    let copyEnermy = document.createElement('div');
+    // enemy < 유령 클래스
+    copyEnermy.className='enemy';
+    // 랜덤으로 left 값 아마도 x 값만?
+    copyEnermy.style.left = `${random}px`;
+    // 현재까지 담겨진 copyEnermy 이걸 이미지박스 내부에 
+    imgBox.appendChild(copyEnermy);
+    // 담은 걸 넘겨줌
+    return copyEnermy
+}
+//20미리초마다 무브, 충돌감지
+let moveInterval = function(enemy){
+    setInterval(()=>{
+        enemyMove(enemy)
+        crash(enemy)
+    },10)
+}
+//유령 무브 함수
+function enemyMove(ene) {
+    if(ene.offsetTop>540){
+        ene.classList.add('enemyDeath')
+        setTimeout(() => ene.classList.remove('enemy'), 300);
+       return clearInterval(moveInterval)
+    }
+    y = ene.offsetTop + 10;
+    ene.style.top = `${y}px`;   
+}
+//유령 충돌감지 함수
+function crash(ene) {
+    if(hero.offsetTop<=ene.offsetTop+15 && 
+        ene.offsetLeft-22<=hero.offsetLeft &&
+        hero.offsetLeft<=ene.offsetLeft+22){
+        ene.classList.remove('enemy')
+        deleteHeart()
+        return clearInterval(moveInterval)
+    }
+}
+//충돌시 하트감소, 하트0은 게임오버
+function deleteHeart() {
+    heart[0].parentNode.removeChild(heart[0]);
+    if(heart.length===0) {
+        timeDiv.innerHTML='';
+        lastMsg.innerHTML=`${second}초 생존했습니다!`;
+        gameOver.style.visibility = '';
+        clearInterval(time);
+        clearInterval(copyInterval);
+    }
+}
+
+https://dailymapins.tistory.com/318?category=1012323

@@ -75,95 +75,161 @@
 			height: 100%;
 		}
 
+		#time_limit {
+		    height: 600px;
+		    width: 20px;
+		    border: 2px solid black;
+		    position: absolute;
+		    display: inline-block;
+		    border-radius: 30px;
+		    background-color: white; /* 기본 배경을 흰색으로 */
+		    opacity: 0.3;  /* 기본적으로 투명도 설정 */
+		    top: 20%;
+		    left: 3%;
+		    
+		    /* 배경을 붉은색에서 흰색으로 변화 */
+		    background-image: 
+		        linear-gradient(to top, red 0%, white 100%),  /* 붉은색에서 흰색으로 변화 */
+/*		        repeating-linear-gradient(to top, black 0px, black 1px, transparent 1px);  눈금 추가 */
+		    
+		    /* 배경 사이즈 및 위치 조정 */
+		    background-size: 100% 100%; /* 첫 번째 배경은 꽉 채우고, 두 번째는 눈금 간격 */
+		    background-position: 0 0; /* 두 배경의 위치 설정 */
+		    
+		    z-index: 0;
+		}
+
+        #life_boss{
+        	position: absolute;
+        	top: 5%;
+        	left: 55%;
+        	transform: translateX(-50%);
+        	width: 80%;
+        	height: 30px;
+        	background-color: white;
+        	opacity: 0.3;
+        	border-radius: 15px;
+        	z-index: 1;
+        }
+		
+
+		#HP{
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			top: 4%;
+			left: 2%;
+		}
+
+		#HP_1{
+			position: absolute;
+			display: flex;
+/*			justify-content: center;*/
+			width: 35px;
+			height: 35px;
+			background-image: url("images/하트3.png");
+			background-size: cover;
+		}
+
+		#HP_2{
+			position: absolute;
+			display: flex;
+/*			justify-content: center;*/
+			width: 35px;
+			height: 35px;
+			background-image: url("images/하트3.png");
+			background-size: cover;
+		}
+
+		#HP_3{
+			position: absolute;
+			display: flex;
+/*			justify-content: center;*/
+			width: 35px;
+			height: 35px;
+			background-image: url("images/하트3.png");
+			background-size: cover;
+		}
+
+		#HP_4{
+			position: absolute;
+			display: flex;
+/*			justify-content: center;*/
+			width: 35px;
+			height: 35px;
+			background-image: url("images/하트3.png");
+			background-size: cover;
+		}
+
+		#HP_5{
+			position: absolute;
+			display: flex;
+/*			justify-content: center;*/
+			width: 35px;
+			height: 35px;
+			background-image: url("images/하트3.png");
+			background-size: cover;
+		}
+
+        #LV_bar {
+            position: absolute;
+            top: 93%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 30px;
+        	background-color: white;
+        	opacity: 0.3;
+            border-radius: 15px;
+            z-index: 1;
+        }
+
+
+		/* 오른쪽 밑 스킬 정렬 다시*/
 		#Game_Skill{
 			height: 200px;
 			width: 30px;
 /*			border: 2px solid black;*/
 			position: absolute;
 /*			background-color: rebeccapurple;*/
-			display: inline-block;
+			display: flex;
 			top: 90%;
 			right: 3%;
 		}
-/*		#item_time{
-			height: 100px;
-			width: 20px;
-			display: flex;
-			border: 2px solid black;
-			border-radius: 30px;
-			position: absolute;
-			background-color: white; 
-			opacity: 0.3;
-			top: 20px;
-			left: 0px;
-			text-align: center;
-			border: 5;
-		}*/
-		#time_limit{
-			height: 600px;
-			width: 20px;
-			border: 2px solid black;
-			position: absolute;
-			display: inline-block;
-			border-radius: 30px;
-			background-color: white; 
-			opacity: 0.3;
-			top: 20%;
-			left: 3%;
-		}
-		#HP{
-			position: absolute;
-			display: inline-block;
-			top: 2%;
-			left: 1%;
-		}
-		#Skill_icon{
-/*			background-color: white;*/
-			background-image: url("https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png");
-/*		https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png	*/
-			width: 40px;
-			height: 40px;
-			text-align: center;
-			background-size: cover;
-			position: absolute;
-			display: flex;
-			border: 0;
-			top: 5px;
-			left: 7px;
-		}
 
-		#Skill_A{ 
-/*			display: none;*/
-			background-image: url("");
-		}
-		#Skill_B{
-/*			display: none;*/
-			background-image: url("");
-		}
-/*		.item_icon{
-			visibility: hidden;
-			display: inline-block;
-			position: absolute;
-			width: 10px;
-			height: 10px;
-			text-align: center;
-			background-size: cover;
-			position: absolute;
-			display: flex;
-			border: 0;
-			top: 5px;
-			left: 7px;
-		}*/
-/*		#item_iconA{
-			background-image: url("https://cdn.pixabay.com/photo/2012/04/02/16/07/plus-24844_1280.png");
+ 		#Skill_icon {
+            background-image: url("https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png");
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            background-size: cover;
+            position: absolute;
+            display: flex;
+            border: 0;
+            top: 5px;
+            left: 7px;
+        }
 
-		}
-		#item_iconB{
-			background-image: url("https://cdn.pixabay.com/photo/2012/04/13/00/18/arrow-31197_1280.png");
-		}
-		#item_iconC{
-			background-image: url("https://cdn.pixabay.com/photo/2013/07/12/12/29/arrow-145783_1280.png");
-		}*/
+        /* 레벨에 따른 스킬 아이콘 */
+        #Skill_A, #Skill_B {
+            display: none; 
+			position: absolute;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+/*            margin-top: 10px;*/
+        }
+
+        #Skill_A {
+            background-image: url("images/스킬A.png");
+        }
+
+        #Skill_B {
+            background-image: url("images/스킬B.png");
+        }
+
+
 
 
 
@@ -178,42 +244,38 @@
         	<!-- ui -->
         	<div id="HP">
         		<!-- HP도 이미지로 변경 -->
-        		<span class="rife" id="HP_1">❤️</span>
-        		<span class="rife" id="HP_2">❤️</span>
-        		<span class="rife" id="HP_3">❤️</span>
-        		<span class="rife" id="HP_4">❤️</span>
-        		<span class="rife" id="HP_5">❤️</span>
+        		<span class="life" id="HP_1"></span>
+        		<span class="life" id="HP_2"></span>
+        		<span class="life" id="HP_3"></span>
+        		<span class="life" id="HP_4"></span>
+        		<span class="life" id="HP_5"></span>
         	</div>
             <div id="Game_Skill">
                 <!-- 아이템 아이콘들 -->
                 <div id="Skill_icon"></div> <!-- 기본 없음 -->
-<!--                 <div class="item_icon" id="item_iconA"></div>
-                <div class="item_icon" id="item_iconB"></div>
-                <div class="item_icon" id="item_iconC"></div>  -->
                 <!-- 레이저 1단계 -->
                 <div id="Skill_A"></div>
                 <!-- 레이저 2단계 -->
                 <div id="Skill_B"></div>
 
-                <!-- <div id="item_time"></div> -->
                 <div id="skill_time"></div> <!-- 숫자로 표기 -->
             </div>
 
         	<div id="time_limit">
         		<!-- ⏱ 🕗 -->
         		<!-- 시간바는 보스 나오는 데 남은 시간 -->
-        		
         	</div>
-        	<!-- <div id="time_boss"></div> -->
 
-        	<div id="score">
-        		<!-- 기본 스코어는 1 -->
+        	<div id="life_boss">
+      			<div id="boss_Hp"></div>
         	</div>
+
+            <div id="LV_bar"><!-- 점수 게이지 --></div>
         	<!-- 인트로 클릭시 시작되어야 -->
         	<div id="intro_TK" width="600" height="800">
         		<!-- 게임 화면 조정 후 주석 해제 -->
         		<video playsinline id="intro_mp4_TK" width="100%" height="100%">
-        			<source id="Video_img" src="C:\Users\301-16\Desktop\kill_Thanos\kill_Thanos\intro_Start.mp4">
+        			<source id="Video_img" src="images/intro_Start.mp4">
         		</video>
         	</div>
 
@@ -222,7 +284,7 @@
         		<button id="btn" onclick="StartMap()">START</button>	
         	</div>
 
-        	<!-- 보스 패턴 180도 회전 -->
+        	<!-- 보스 페이즈 패턴 180도 회전 -->
         	<div id="Boss_Reality"></div>
 
         	<div id="soldier">
