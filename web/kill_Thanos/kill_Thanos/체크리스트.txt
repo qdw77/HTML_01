@@ -1,0 +1,70 @@
+상태창 앱솔루트
+
+아이템 지속시간
+시간
+
+오른쪽 아래 점수
+
+
++쫄몹 때린 횟수
+-맞으면
+inHtml inner
+인트롤
+
+클릭하면 새 이미지 
+> 인트로 > 시작 화면
+
+3. 맵 & UI 시스템 담당 (Map & UI/UX & Effects)
+난이도: ★ ★ (기본 → 중급)
+주요 작업: 맵 변경 효과, UI, 연출, 사운드
+
+구현 순서
+기본 맵 배경 설정 (우주 배경)
+UI 시스템 구축 (HP, 총알 상태, 보스 HP 바)
+적 등장 패턴 조정 (랜덤 스폰, 웨이브 방식)
+리얼리티 스톤 효과 구현 (맵 반전)
+보스 등장 연출 효과 추가
+사운드 및 최종 연출 튜닝
+
+필요 객체 & 클래스 설계
+클래스명 > 설명 > 주요 속성 및 메서드
+
+GameMap > 맵 & 배경 관리 >background ,
+changeReality()
+
+UIManager > UI 시스템 (HP, 보스 바 등) > updateHP() , updateScore()
+
+EffectManager >이펙트 및 연출 효과 관리 > applyShake() , applyExplosion()
+SoundManager >사운드 시스템 관리 > playSound() , stopSound()
+
+
+
+<!-- 	        <canvas id="intro_TK">
+			    	<div id="video_TK">
+						<video playsinline autoplay muted>
+	        				<source src="C:\Users\301-16\Desktop\kill_Thanos\intro_Start.mp4">
+	        			</video>
+			    	</div>
+	        </canvas> -->
+<!-- 	        <canvas id="Start_TK" width="600" height="800">
+			    <div id="StartImg_TK">
+			    <img id="StartImg" src="https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg">
+					<button id="btn">START</button>
+				</div>
+	        </canvas> -->
+
+           /*#Start_TK{
+           	position: absolute;
+           	background-image: url(https://i.ytimg.com/vi/hrfJ4jnqdOw/sddefault.jpg);
+           }*/
+
+
+/*        #StartImg{position: relative; }*/
+/*		#StartImg_TK{
+			background: black;
+			 
+			position: absolute;}*/
+/*        button #btn{background-color: white; position: absolute;}*/
+
+
+https://apps.timwhitlock.info/emoji/tables/unicode
