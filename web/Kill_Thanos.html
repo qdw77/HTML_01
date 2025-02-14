@@ -77,20 +77,19 @@
 
 		#time_limit {
 		    height: 600px;
-		    width: 20px;
+		    width: 30px;
 		    border: 2px solid black;
 		    position: absolute;
 		    display: inline-block;
 		    border-radius: 30px;
 		    background-color: white; /* 기본 배경을 흰색으로 */
 		    opacity: 0.3;  /* 기본적으로 투명도 설정 */
-		    top: 20%;
-		    left: 3%;
+		    top: 16%;
+		    left: 4%;
 		    
 		    /* 배경을 붉은색에서 흰색으로 변화 */
 		    background-image: 
 		        linear-gradient(to top, red 0%, white 100%),  /* 붉은색에서 흰색으로 변화 */
-/*		        repeating-linear-gradient(to top, black 0px, black 1px, transparent 1px);  눈금 추가 */
 		    
 		    /* 배경 사이즈 및 위치 조정 */
 		    background-size: 100% 100%; /* 첫 번째 배경은 꽉 채우고, 두 번째는 눈금 간격 */
@@ -99,92 +98,47 @@
 		    z-index: 0;
 		}
 
-        #life_boss{
-        	position: absolute;
-        	top: 5%;
-        	left: 55%;
-        	transform: translateX(-50%);
-        	width: 80%;
-        	height: 30px;
-        	background-color: white;
-        	opacity: 0.3;
-        	border-radius: 15px;
-        	z-index: 1;
-        }
+		#life_boss {
+		    position: absolute;
+		    top: 5%;
+		    left: 57%;
+		    transform: translateX(-50%);
+		    width: 80%;
+		    height: 30px;
+		    background-color: white;
+		    opacity: 0.3;
+		    border-radius: 15px;
+		    z-index: 1;
+		}
+
+		#boss_Hp {
+		    height: 100%;
+		    width: 100%;  /* 초기 HP는 100% */
+		    background-color: red;  /* 초기 배경색은 빨간색 */
+		    border-radius: 15px;
+		    transition: width 1s ease-out; /* 애니메이션 효과 */
+		}
+
 		
 
-		#HP{
-			position: absolute;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			top: 4%;
-			left: 2%;
+		#HP {
+		    position: absolute;
+		    display: flex;
+		    flex-direction: row;  /* 수평으로 아이템들 정렬 */
+		    align-items: flex-start;  /* 세로 방향에서 아이템들이 위로 정렬되도록 */
+		    top: 4%;   /* 상단 위치 설정 */
+		    left: 0.7%;  /* 왼쪽 위치 설정 */
+		    width: auto;  /* 너비 자동 설정 */
+		    height: 35px; /* 아이템 크기 */
 		}
 
-		#HP_1{
-			position: absolute;
-			display: flex;
-/*			justify-content: center;*/
-			width: 35px;
-			height: 35px;
-			background-image: url("images/하트3.png");
-			background-size: cover;
+		#HP_1, #HP_2, #HP_3, #HP_4, #HP_5 {
+		    width: 35px;
+		    height: 35px;
+		    background-image: url("images/하트3.png");
+		    background-size: cover;
+		    margin-right: 5px;  /* 아이템 간 간격을 5px로 설정 */
 		}
-
-		#HP_2{
-			position: absolute;
-			display: flex;
-/*			justify-content: center;*/
-			width: 35px;
-			height: 35px;
-			background-image: url("images/하트3.png");
-			background-size: cover;
-		}
-
-		#HP_3{
-			position: absolute;
-			display: flex;
-/*			justify-content: center;*/
-			width: 35px;
-			height: 35px;
-			background-image: url("images/하트3.png");
-			background-size: cover;
-		}
-
-		#HP_4{
-			position: absolute;
-			display: flex;
-/*			justify-content: center;*/
-			width: 35px;
-			height: 35px;
-			background-image: url("images/하트3.png");
-			background-size: cover;
-		}
-
-		#HP_5{
-			position: absolute;
-			display: flex;
-/*			justify-content: center;*/
-			width: 35px;
-			height: 35px;
-			background-image: url("images/하트3.png");
-			background-size: cover;
-		}
-
-        #LV_bar {
-            position: absolute;
-            top: 93%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 30px;
-        	background-color: white;
-        	opacity: 0.3;
-            border-radius: 15px;
-            z-index: 1;
-        }
-
 
 		/* 오른쪽 밑 스킬 정렬 다시*/
 		#Game_Skill{
@@ -197,40 +151,43 @@
 			top: 90%;
 			right: 3%;
 		}
-
- 		#Skill_icon {
-            background-image: url("https://cdn.pixabay.com/photo/2012/04/24/13/00/mark-39951_1280.png");
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            background-size: cover;
-            position: absolute;
-            display: flex;
-            border: 0;
-            top: 5px;
-            left: 7px;
-        }
+		/* 여기서부터 아래 css */
 
         /* 레벨에 따른 스킬 아이콘 */
-        #Skill_A, #Skill_B {
-            display: none; 
+        #Skill_A img{
 			position: absolute;
             background-size: cover;
             width: 50px;
             height: 50px;
-/*            margin-top: 10px;*/
+            left: 0;
+            top: 0;
         }
 
         #Skill_A {
-            background-image: url("images/스킬A.png");
+        	background-color: gold;
+        	position: absolute;
+            background-size: cover;
+            width: 55px;
+            height: 55px;
+            left: 5px;
+            border-radius: 20px;
         }
 
-        #Skill_B {
-            background-image: url("images/스킬B.png");
+        #clear_mp4_TK{
+        	display: none;
+        	width: 100%;
+			height: 100%;
+			z-index: 3;
         }
 
+        #over_mp4_TK{
+        	display: none;
+        	width: 100%;
+			height: 100%;
+			z-index: 4;
+        }
 
-
+/*여기까지*/
 
 
     </style>
@@ -250,15 +207,12 @@
         		<span class="life" id="HP_4"></span>
         		<span class="life" id="HP_5"></span>
         	</div>
+        	<!-- 여기도 수정 -->
             <div id="Game_Skill">
-                <!-- 아이템 아이콘들 -->
-                <div id="Skill_icon"></div> <!-- 기본 없음 -->
                 <!-- 레이저 1단계 -->
-                <div id="Skill_A"></div>
-                <!-- 레이저 2단계 -->
-                <div id="Skill_B"></div>
-
-                <div id="skill_time"></div> <!-- 숫자로 표기 -->
+                <div id="Skill_A">
+                	<img src="images/Skill.png">
+                </div>
             </div>
 
         	<div id="time_limit">
@@ -269,13 +223,17 @@
         	<div id="life_boss">
       			<div id="boss_Hp"></div>
         	</div>
-
-            <div id="LV_bar"><!-- 점수 게이지 --></div>
-        	<!-- 인트로 클릭시 시작되어야 -->
+        	
         	<div id="intro_TK" width="600" height="800">
-        		<!-- 게임 화면 조정 후 주석 해제 -->
+        		<!-- 여기 수정 -->
         		<video playsinline id="intro_mp4_TK" width="100%" height="100%">
         			<source id="Video_img" src="images/intro_Start.mp4">
+        		</video>
+        		<video playsinline id="clear_mp4_TK" width="100%" height="100%">
+        			<source id="Video_img_clear" src="images/clear_boss.mp4">
+        		</video>
+        		<video playsinline id="over_mp4_TK" width="100%" height="100%">
+        			<source id="Video_img_over" src="images/game_over.mp4">
         		</video>
         	</div>
 
@@ -284,14 +242,12 @@
         		<button id="btn" onclick="StartMap()">START</button>	
         	</div>
 
-        	<!-- 보스 페이즈 패턴 180도 회전 -->
-        	<div id="Boss_Reality"></div>
+        	<button onclick="bossDamage(10)">보스에게 10 데미지 입히기</button>
+        	<button onclick="Damage(2)">캐릭터에게 데미지 2</button>
+        	<button id="expButton">경험치 추가</button>
+        	<button id="clear_Boss_btn">클리어</button>
+        	<button id="over_btn">게임 오버</button>
 
-        	<div id="soldier">
-        		<div id="soldierA"></div>
-        		<div id="soldierB"></div>
-        		<div id="soldierC"></div>
-        	</div>
 
         </div>
     </div>

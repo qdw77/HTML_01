@@ -1,0 +1,148 @@
+시간 끝나면 보스 나오도록 
+보스 나오는 곳이 어디냐
+
+스킬 창 부분 경험치 받아오고 스킬 아이콘 변경 / 스킬 사용하면 쿨타임
+
+9:20~10:00 회의 및 js변경 - HP / bossHP 추가 
+10:00~11:00 중간 점검 및 HP/ bossHP js/css 수정
+11:00~12:00 Boss 출몰시간 js/css 변경
+12:00~13:00 출몰시간이 지나야 보스 출몰이 되도록 js 
+
+14:00~15:00 쫄 js 기초
+15:00~16:00 쫄 js 기초 완성
+16:00~17:00 쫄 js를 본 코드에 합치기
+17:00~18:00 
+ 쫄들 저장 리스트
+
+쫄 위치 랜덤 및 이동 (고정적으로 밑으로 이동)/ 이동속도 / 그리는 함수 및 사망처리/제거
+
+루프 
+
+ // 적의 위치를 업데이트하는 함수
+function updateEnemies() {
+    enemies.forEach((enemy, index) => {
+        enemy.y += enemy.speed; // 적이 아래로 이동
+
+        // 적이 화면 아래로 나가면 배열에서 제거
+        if (enemy.y > canvas.height) {
+            enemies.splice(index, 1); // 적 제거
+        }
+    });
+}
+
+// 일정 시간마다 적이 생성되도록 설정 (적이 계속 등장)
+setInterval(createEnemy, 1000); // 1초마다 적을 생성
+
+
+// let minions = [];  // 쫄들을 저장할 배열
+
+// // 쫄 클래스 정의
+// class Minion {
+//     constructor() {
+//         // 쫄의 X 위치를 랜덤으로 설정 (0 ~ WidthMap 범위 내)
+//         this.x = Math.random() * WidthMap;
+
+//         // 쫄의 Y 위치는 화면 상단에서 시작
+//         this.y = -50;
+
+//         // 쫄의 크기 (고정된 크기)
+//         this.width = 40;
+//         this.height = 40;
+
+//         // 쫄의 이동 속도는 랜덤하게 설정 (1~3 사이)
+//         this.speed = Math.random() * 2 + 1;
+
+//         // 쫄의 X 이동 속도도 랜덤하게 설정 (-1 ~ 1 범위)
+//         this.speedX = Math.random() * 2 - 1;  // 왼쪽(-1) 또는 오른쪽(+1)으로 이동
+//     }
+
+//     // 쫄을 화면에서 이동시키는 함수
+//     move() {
+//         this.x += this.speedX;  // X축으로 이동 (왼쪽/오른쪽)
+//         this.y += this.speed;   // Y축으로 내려감 (아래로 이동)
+
+//         // X축의 화면 밖으로 나가지 않게 제한
+//         if (this.x < 0) this.x = 0;
+//         if (this.x > WidthMap - this.width) this.x = WidthMap - this.width;
+
+//         // Y축 화면 아래로 나가면 삭제
+//         if (this.y > Height) {
+//             this.isAlive = false;  // 쫄이 화면을 벗어나면 사망 처리
+//         }
+//     }
+
+//     // 쫄을 그리는 함수
+//     draw() {
+//         ctx.fillStyle = 'red';  // 쫄의 색상
+//         ctx.fillRect(this.x, this.y, this.width, this.height);  // 쫄을 화면에 그리기
+//     }
+
+//     // 쫄이 사망 처리되는 함수
+//     takeDamage(damage) {
+//         this.hp -= damage;
+//         if (this.hp <= 0) {
+//             this.isAlive = false;
+//             minions = minions.filter(minion => minion !== this);  // 배열에서 삭제
+//         }
+//     }
+// }
+
+
+
+// function createEnemy(){
+//    const enemy={
+//       x:Math.random()*(Game_canvas.width-40),
+//       y:0,
+//       width:40,
+//       height:40,
+//       speed:2,
+//    };
+//    soldiers.push(enemy);
+// }
+
+// function drawEnemies() {
+//    soldiers.forEach((enemy)=>{
+//       ctx.fillStyle = 'blue'; // 적의 색상을 빨간색으로 설정
+//       ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+//    });
+// }
+
+// function updateEnemies(){
+//    soldiers.forEach((enemy,index)=>{
+//       enemy.y+=enemy.speed;
+
+//       if(enemy.y>Game_canvas.height){
+//          soldiers.splice(index,1);
+//       }
+//    });
+// }
+// setInterval(createEnemy, 1000);
+
+// function gmaeLoop() {
+//    ctx.clearRect(0, 0, Game_canvas.width, Game_canvas.height);
+//    drawEnemies();
+//    updateEnemies();
+// }
+
+쫄
+https://codesparrow.tistory.com/18
+
+게임 오버시 먼지가 되는 영상(intro처럼 제작) 후 게임오버 화면
+클리어시 아이언맨이 손가락 튕기는 영상 후 클리어 화면
+
+승리시 편집
+아이언맨이 손가락 튕김
+48:36(48:42) ~ 48:57
+
+패배시 편집
+타노스가 손가락 튕김 
+22:17~22:19
+다른 이들이 모두 먼지가 됌
+22:45~22:50
+
+https://app.clipchamp.com/editor/6662929b-2853-4775-a4a3-254b26312918/export
+
+보스 총알 복사 < 쫄
+스킬 < 레벨 5가 되면 레이저 추가 / 레벨 10까지 공격력 강화
+
+https://app.clipchamp.com/
